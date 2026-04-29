@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block content_publico %}
+
+<section class="seccion-bitacora">
+
+    <h1 class="eventos-titulo titulo-azul texto-centro">Bitácora de Actividades</h1>
+    <p class="texto-centro texto-gris">Documentación técnica y eventos institucionales.</p>
+
+    <div class="eventos-grid">
+
+        {% if eventos %}
+
+            {% for indice, evento in eventos %}
+            <div class="card-evento">
+
+                <!-- IMAGEN PRINCIPAL -->
+                <div class="card-img-container">
+                    {% if evento.fotos and evento.fotos|length > 0 %}
+                        <img src="{{ url_for('static', filename='eventos/' ~ indice ~ '/' ~ evento.fotos[0]) }}"
+                             alt="{{ evento.titulo }}">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='img/no-image.jpg') }}"
+                             alt="Sin imagen">
+                    {% endif %}
+                </div>
+
+                <!-- INFORMACIÓN DEL EVENTO -->
+                <div class="card-body">
+                    <span class="event-date">{{ evento.fecha }}</span>
+                    <span class="event-categoria">{{ evento.categoria }}</span>
+                    <h3 class="event-title">{{ evento.titulo }}</h3>
+                    <p class="event-desc">{{ evento.descripcion }}</p>
+                </div>
+
+                <!-- MINI GALERÍA (fotos extra) -->
+                {% if evento.fotos and evento.fotos|length > 1 %}
+                <div class="galeria-mini" style="padding: 10px;">
+                    {% for foto in evento.fotos[1:] %}
+                        <img src="{{ url_for('static', filename='eventos/' ~ indice ~ '/' ~ foto) }}"
+                             alt="Foto {{ loop.index }}">
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+            </div>
+            {% endfor %}
+
+        {% else %}
+            <p class="texto-centro" style="margin-top: 50px;">
+                Aún no se han documentado eventos.
+            </p>
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

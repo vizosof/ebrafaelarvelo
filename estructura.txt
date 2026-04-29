@@ -1,0 +1,33 @@
+E-B-R-A/
+├── app.py
+├── eventos.json
+├── usuarios.json
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   ├── img/
+│   │   ├── logo.png
+│   │   ├── fachada.jpg
+│   │   ├── mural.jpg
+│   │   ├── mapa.jpg
+│   │   └── no-image.jpg
+│   └── eventos/
+│       └── (carpetas por id de evento)
+│
+└── templates/
+    ├── layout.html          ← único layout
+    ├── inicio.html
+    ├── nosotros.html
+    ├── eventos.html
+    ├── contacto.html
+    ├── login.html
+    └── admin/
+        ├── sidebar.html
+        ├── dashboard.html
+        ├── mis_eventos.html
+        ├── crear_evento.html
+        ├── editar_evento.html
+        ├── subir_fotos.html
+        ├── galeria.html
+        └── perfil.html

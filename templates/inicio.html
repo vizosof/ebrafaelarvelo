@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content_publico %}
+
+<section class="hero-section">
+    <div class="hero-banner">
+        <h1>E.B. Rafael Arvelo</h1>
+        <p class="hero-subtitle">Más de cien años de historia,<br> una eternidad de conocimiento.</p>
+    </div>
+</section>
+
+<div class="inicio-grid">
+    
+    <article class="identidad-section">
+        <h2 class="titulo-azul">Nuestra Identidad</h2>
+        <p>
+            Ubicada en el corazón de Valencia, nuestra institución se enorgullece de sus espacios 
+            llenos de historia. El mural que adorna nuestros pasillos es un recordatorio constante 
+            de nuestros valores y raíces venezolanas.
+        </p>
+        <img src="{{ url_for('static', filename='img/mural.jpg') }}" class="mural-img" alt="Mural Histórico">
+    </article>
+
+    <aside class="sidebar-avisos">
+        <h3 class="titulo-azul" style="text-align: center;">Avisos Recientes</h3>
+        <hr>
+
+        <ul class="lista-avisos">
+            <li>
+                <strong>📅 Noticias:</strong><br>
+                <span class="aviso-placeholder">No hay noticias recientes.</span>
+            </li>
+
+            <li>
+                <strong>🎨 Cultura:</strong><br>
+                Visitas guiadas al área de murales.
+            </li>
+        </ul>
+    </aside>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 class="admin-title-page">Editar Evento</h1>
+
+<form method="POST" class="form-evento">
+
+    <label>Título del evento</label>
+    <input type="text" name="titulo" value="{{ evento.titulo }}" required>
+
+    <label>Fecha</label>
+    <input type="date" name="fecha" value="{{ fecha_html }}" required>
+
+    <label>Descripción</label>
+    <textarea name="descripcion" rows="5" required>{{ evento.descripcion }}</textarea>
+
+    <label>Categoría</label>
+    <select name="categoria" required>
+        <option value="Cívico"    {% if evento.categoria == "Cívico"    %}selected{% endif %}>Cívico</option>
+        <option value="Cultural"  {% if evento.categoria == "Cultural"  %}selected{% endif %}>Cultural</option>
+        <option value="Académico" {% if evento.categoria == "Académico" %}selected{% endif %}>Académico</option>
+        <option value="Deportivo" {% if evento.categoria == "Deportivo" %}selected{% endif %}>Deportivo</option>
+    </select>
+
+    <button type="submit" class="btn btn-crear">Guardar Cambios</button>
+
+</form>
+
+<div style="margin-top: 25px; display: flex; gap: 15px;">
+    <a href="{{ url_for('subir_fotos', id_evento=index) }}" class="btn btn-publicar">
+        🖼️ Gestionar Fotos
+    </a>
+    <a href="{{ url_for('mis_eventos') }}" class="btn btn-accion">
+        ← Volver a Mis Eventos
+    </a>
+</div>
+
+{% endblock %}

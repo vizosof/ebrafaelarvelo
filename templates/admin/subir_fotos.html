@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 class="admin-title-page">Subir Fotos — {{ evento.titulo }}</h1>
+
+<form method="POST" enctype="multipart/form-data" class="form-evento">
+
+    <label>Seleccionar imágenes:</label>
+    <input type="file" name="fotos" multiple accept="image/*" required>
+
+    <br><br>
+
+    <button type="submit" class="btn btn-publicar">⬆️ Subir Fotos</button>
+
+</form>
+
+<h2 style="margin-top: 30px;">Fotos del evento</h2>
+
+<div class="galeria-mini" style="margin-top: 20px;">
+    {% if evento.fotos %}
+        {% for foto in evento.fotos %}
+            <div style="text-align: center;">
+                <img src="{{ url_for('static', filename='eventos/' ~ id_evento ~ '/' ~ foto) }}"
+                    style="width: 120px; height: 90px; object-fit: cover;
+                            border-radius: 6px; border: 1px solid #ccc;">
+                <br>
+                <a href="{{ url_for('eliminar_foto', id_evento=id_evento, nombre=foto) }}"
+                class="accion-link eliminar"
+                onclick="return confirm('¿Eliminar esta foto?')">
+                🗑️ Eliminar
+                </a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No hay fotos subidas aún.</p>
+    {% endif %}
+</div>
+
+<div style="margin-top: 30px;">
+    <a href="{{ url_for('mis_eventos') }}" class="btn btn-accion">← Volver a Mis Eventos</a>
+</div>
+
+{% endblock %}

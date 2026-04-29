@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 class="admin-title-page">Panel Administrativo</h1>
+
+<div class="admin-stats">
+
+    <div class="admin-card">
+        <h3>Eventos creados</h3>
+        <p>{{ total_eventos }}</p>
+    </div>
+
+    <div class="admin-card">
+        <h3>Fotos subidas</h3>
+        <p>{{ total_fotos }}</p>
+    </div>
+
+    <div class="admin-card">
+        <h3>Eventos publicados</h3>
+        <p>{{ total_publicados }}</p>
+    </div>
+
+    <div class="admin-card">
+        <h3>Eventos pendientes</h3>
+        <p>{{ total_pendientes }}</p>
+    </div>
+
+</div>
+
+<h2 class="admin-title-page" style="margin-top: 40px;">Últimos eventos creados</h2>
+
+{% if eventos %}
+    <table class="tabla-eventos">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Fecha</th>
+                <th>Categoría</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for e in eventos %}
+            <tr>
+                <td>{{ e.titulo }}</td>
+                <td>{{ e.fecha }}</td>
+                <td>{{ e.categoria }}</td>
+                <td>
+                    {% if e.publicado %}
+                        <span style="color: green;">🟢 Publicado</span>
+                    {% else %}
+                        <span style="color: red;">🔴 Pendiente</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No hay eventos registrados.</p>
+{% endif %}
+
+{% endblock %}

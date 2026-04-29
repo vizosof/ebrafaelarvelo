@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content_publico %}
+
+<section class="contacto-seccion">
+
+    <h1 class="titulo-azul texto-centro">Comuníquese con Nosotros</h1>
+    <p class="texto-centro texto-gris mb-40">
+        Estamos ubicados en el centro histórico de Valencia para servirle.
+    </p>
+
+    <div class="contacto-grid">
+
+        <div class="info-contacto">
+
+            <div class="item-contacto">
+                <strong>📍 Dirección</strong>
+                <p>
+                    Calle Colombia entre Farriar y Boyacá #97-24  
+                    (cerca de la Plaza Bolívar), Valencia, Edo. Carabobo.
+                </p>
+            </div>
+
+            <div class="item-contacto">
+                <strong>📞 Teléfono</strong>
+                <p>+58 (241) XXX-XXXX (Atención en horario escolar)</p>
+            </div>
+
+            <div class="item-contacto">
+                <strong>⏰ Horario de Atención</strong>
+                <p>Lunes a Viernes: 7:30 AM – 12:30 PM</p>
+            </div>
+
+            <div class="item-contacto">
+                <strong>📧 Correo Electrónico</strong>
+                <p>contacto@ebrafaelarvelo.edu.ve</p>
+            </div>
+
+        </div>
+
+        <div class="mapa-ficticio">
+            <img src="{{ url_for('static', filename='img/mapa.jpg') }}" 
+                alt="Ubicación Escuela"
+                class="img-fluid">
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

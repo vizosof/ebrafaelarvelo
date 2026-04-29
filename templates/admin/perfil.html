@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 class="admin-title-page">Mi Perfil</h1>
+
+<div class="form-evento" style="max-width: 400px;">
+
+    <div class="item-contacto" style="margin-bottom: 20px;">
+        <strong>👤 Usuario</strong>
+        <p>{{ session.get('usuario') }}</p>
+    </div>
+
+    <div class="item-contacto" style="margin-bottom: 20px;">
+        <strong>🔑 Rol</strong>
+        <p>{{ session.get('rol') }}</p>
+    </div>
+
+    <hr style="margin: 20px 0;">
+
+    <a href="{{ url_for('logout') }}" class="btn btn-accion">🚪 Cerrar Sesión</a>
+
+</div>
+
+{% endblock %}

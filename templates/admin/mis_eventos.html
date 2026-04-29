@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 class="admin-title-page">Mis Eventos</h1>
+
+{% if eventos %}
+<table class="tabla-eventos">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Fecha</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in eventos %}
+        <tr>
+            <td>{{ e.titulo }}</td>
+            <td>{{ e.fecha }}</td>
+            <td>{{ e.categoria }}</td>
+            <td class="acciones-texto">
+
+                {% if e.publicado %}
+                    <span style="color: green; font-weight: bold;">🟢 Publicado</span>
+                {% else %}
+                    <span style="color: red; font-weight: bold;">🔴 Pendiente</span>
+                {% endif %}
+
+                <span class="separador">|</span>
+
+                <a href="{{ url_for('editar_evento', index=loop.index0) }}" class="accion-link">Editar</a>
+
+                <span class="separador">|</span>
+
+                <a href="{{ url_for('subir_fotos', id_evento=loop.index0) }}" class="accion-link">Fotos</a>
+
+                <span class="separador">|</span>
+
+                {% if e.publicado %}
+                    <a href="{{ url_for('publicar_evento', index=loop.index0) }}" class="accion-link ocultar">Ocultar</a>
+                {% else %}
+                    <a href="{{ url_for('publicar_evento', index=loop.index0) }}" class="accion-link visible">Visible</a>
+                {% endif %}
+
+                <span class="separador">|</span>
+
+                <a href="{{ url_for('eliminar_evento', index=loop.index0) }}"
+                class="accion-link eliminar"
+                onclick="return confirm('¿Seguro que quieres eliminar este evento?')">Eliminar</a>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+    <p>No hay eventos registrados.</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content_publico %}
+
+<div class="nosotros-container">
+
+    <h1 class="titulo-azul texto-centro">Sobre Nuestra Institución</h1>
+    <hr class="separador-dorado">
+
+    <section class="info-row">
+        <div>
+            <h2 class="titulo-seccion">Nuestra Historia</h2>
+            <p>
+                La <strong>Escuela Básica Rafael Arvelo</strong> es un referente educativo en Valencia, Carabobo. 
+                Nuestra sede histórica no solo es un espacio de aprendizaje, sino un patrimonio que cuidamos con orgullo 
+                mientras formamos a las nuevas generaciones.
+            </p>
+            <p>
+                A lo largo de los años, hemos integrado la tradición de nuestra estructura colonial con métodos 
+                pedagógicos modernos.
+            </p>
+        </div>
+
+        <img src="{{ url_for('static', filename='img/fachada.jpg') }}" 
+            class="img-redondeada" 
+            alt="Sede de la Escuela">
+    </section>
+
+    <section class="mision-vision-grid">
+        <div class="card-mision">
+            <h3>Nuestra Misión</h3>
+            <p>
+                Brindar una educación de calidad que potencie los valores éticos, culturales y académicos de nuestros 
+                estudiantes, preparándolos para ser ciudadanos responsables y comprometidos con su país.
+            </p>
+        </div>
+
+        <div class="card-vision">
+            <h3>Nuestra Visión</h3>
+            <p>
+                Ser reconocidos como la institución líder en el centro de Valencia por nuestra excelencia en la 
+                formación integral, el respeto a nuestra infraestructura histórica y la innovación constante.
+            </p>
+        </div>
+    </section>
+
+    <section class="texto-centro">
+        <h2 class="titulo-seccion">Nuestro Patrimonio Cultural</h2>
+        <p class="texto-centrado-800">
+            El mural central de nuestra escuela es una pieza invaluable que narra nuestra historia nacional, sirviendo 
+            de inspiración diaria para nuestros alumnos y maestros.
+        </p>
+
+        <img src="{{ url_for('static', filename='img/mural.jpg') }}" 
+            class="img-redondeada" 
+            alt="Mural Escolar">
+    </section>
+
+</div>
+
+{% endblock %}

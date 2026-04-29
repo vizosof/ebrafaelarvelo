@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}E. B. Rafael Arvelo{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- ===================== HEADER ===================== -->
+    <header>
+        <div class="nav-container">
+
+            <div class="logo-area">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+                <h2>Escuela Básica Rafael Arvelo</h2>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('inicio') }}"
+                        class="{% if active_page == 'inicio' %}active{% endif %}">Inicio</a></li>
+
+                    <li><a href="{{ url_for('nosotros') }}"
+                        class="{% if active_page == 'nosotros' %}active{% endif %}">Nosotros</a></li>
+
+                    <li><a href="{{ url_for('eventos') }}"
+                        class="{% if active_page == 'eventos' %}active{% endif %}">Eventos</a></li>
+
+                    <li><a href="{{ url_for('contacto') }}"
+                        class="{% if active_page == 'contacto' %}active{% endif %}">Contacto</a></li>
+
+                    {% if session.get('usuario') %}
+                        <li><a href="{{ url_for('admin_dashboard') }}"
+                            class="{% if active_page == 'dashboard' %}active{% endif %}">Panel</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}">Admin</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- ===================== MENSAJES FLASH ===================== -->
+    {% with mensajes = get_flashed_messages() %}
+        {% if mensajes %}
+            <div class="flash-container">
+                {% for mensaje in mensajes %}
+                    <div class="flash-mensaje">{{ mensaje }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- ===================== CONTENIDO ===================== -->
+    {% if session.get('usuario') %}
+        <div class="admin-wrapper">
+            {% include 'admin/sidebar.html' %}
+            <div class="admin-main">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    {% else %}
+        <div class="main-content">
+            {% block content_publico %}{% endblock %}
+        </div>
+    {% endif %}
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+        <p>Valencia, Carabobo — Proyecto de Servicio Comunitario</p>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>

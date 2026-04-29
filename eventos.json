@@ -1,0 +1,42 @@
+[
+    {
+        "titulo": "acto civico de 19 de abril ",
+        "fecha": "19/04/2026",
+        "descripcion": "Celebración del Día de la Independencia con actos cívicos, recitación de poemas y desfile escolar en el patio principal.",
+        "categoria": "Cívico",
+        "fotos": [
+            "19abril1810.jpeg"
+        ],
+        "publicado": true
+    },
+    {
+        "titulo": "Feria de Ciencias 2025",
+        "fecha": "25/04/2026",
+        "descripcion": "Los estudiantes de 5to y 6to grado presentaron sus proyectos científicos ante padres y representantes. Hubo más de 20 proyectos expuestos.",
+        "categoria": "Académico",
+        "fotos": [
+            "mural.jpg"
+        ],
+        "publicado": true
+    },
+    {
+        "titulo": "Día del Maestro",
+        "fecha": "15/01/2026",
+        "descripcion": "Homenaje especial a todos los docentes de la institución con actos culturales preparados por los alumnos, entrega de reconocimientos y compartir.",
+        "categoria": "Cultural",
+        "fotos": [
+            "dia_del_maestro.jpg"
+        ],
+        "publicado": true
+    },
+    {
+        "titulo": "Torneo Interescolar de Fútbol",
+        "fecha": "10/03/2026",
+        "descripcion": "Nuestra escuela participó en el torneo interescolar municipal, clasificando a semifinales. Gran actuación de nuestros estudiantes deportistas.",
+        "categoria": "Deportivo",
+        "fotos": [
+            "futbol.jpg"
+        ],
+        "publicado": true
+    }
+]

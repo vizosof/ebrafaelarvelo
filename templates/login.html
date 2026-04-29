@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content_publico %}
+
+<div class="login-wrapper">
+    <div class="login-container">
+
+        <h2 class="titulo-azul texto-centro">Iniciar Sesión</h2>
+        <p class="texto-centro texto-gris" style="margin-bottom: 20px;">
+            Panel administrativo — E.B. Rafael Arvelo
+        </p>
+
+        {% if error %}
+            <div class="error-login">⚠️ {{ error }}</div>
+        {% endif %}
+
+        <form method="POST" class="form-login">
+
+            <label>Usuario</label>
+            <input type="text" name="usuario" placeholder="Ingresa tu usuario" required>
+
+            <label>Contraseña</label>
+            <input type="password" name="password" placeholder="Ingresa tu contraseña" required>
+
+            <button type="submit" class="btn btn-publicar" style="width: 100%;">
+                Entrar →
+            </button>
+
+        </form>
+
+        <div style="margin-top: 20px; text-align: center;">
+            <a href="{{ url_for('inicio') }}" class="accion-link" style="font-size: 0.9rem;">
+                ← Volver al inicio
+            </a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

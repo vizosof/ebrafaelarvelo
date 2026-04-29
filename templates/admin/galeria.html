@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 class="admin-title-page">Galería de Fotos</h1>
+
+{% if eventos %}
+    {% for indice, evento in eventos %}
+    <div style="margin-bottom: 40px;">
+
+        <h2 class="titulo-azul">{{ evento.titulo }}
+            <small style="font-size: 0.8rem; color: #999;">— {{ evento.fecha }}</small>
+        </h2>
+        <hr style="border-color: var(--dorado); margin-bottom: 15px;">
+
+        <div class="galeria-grid">
+            {% for foto in evento.fotos %}
+                <div class="galeria-item">
+                    <img src="{{ url_for('static', filename='eventos/' ~ indice ~ '/' ~ foto) }}"
+                        alt="{{ evento.titulo }}">
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+    {% endfor %}
+{% else %}
+    <p class="texto-centro" style="margin-top: 40px;">
+        No hay fotos subidas todavía.
+    </p>
+{% endif %}
+
+{% endblock %}

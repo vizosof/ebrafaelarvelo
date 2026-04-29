@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 class="admin-title-page">Crear Evento</h1>
+
+<form action="{{ url_for('crear_evento') }}" method="POST" class="form-evento">
+
+    <label>Título del evento</label>
+    <input type="text" name="titulo" required>
+
+    <label>Fecha</label>
+    <input type="date" name="fecha" required>
+
+    <label>Descripción</label>
+    <textarea name="descripcion" rows="5" required></textarea>
+
+    <label>Categoría</label>
+    <select name="categoria" required>
+        <option value="Cívico">Cívico</option>
+        <option value="Cultural">Cultural</option>
+        <option value="Académico">Académico</option>
+        <option value="Deportivo">Deportivo</option>
+    </select>
+
+    <button type="submit" class="btn btn-crear">Crear Evento</button>
+
+</form>
+
+<div style="margin-top: 20px;">
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-accion">← Volver al Panel</a>
+</div>
+
+{% endblock %}

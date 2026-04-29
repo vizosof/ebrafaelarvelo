@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+
+# VSCode
+.vscode/
+
+# Datos sensibles — NO subir a GitHub
+usuarios.json
+
+# Archivos temporales
+*.log
+.DS_Store
